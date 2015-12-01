@@ -1,0 +1,21 @@
+# Java
+target/
+*.jar
+*.war
+*.ear
+*.log
+*.tmp
+*.bak
+
+# IDEs
+.idea/
+*.eml
+*.iml
+.classpath
+.project
+
+# Mac OS #
+.DS_Store
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
