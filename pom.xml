@@ -9,6 +9,7 @@
     <version>1.0.0</version>
     <modules>
         <module>spring-examples-mybatis</module>
+        <module>spring-examples-hsqldb</module>
     </modules>
     <packaging>pom</packaging>
 
