@@ -13,6 +13,7 @@
         <module>spring-examples-mybatis</module>
         <module>spring-examples-jpa</module>
         <module>spring-examples-retry</module>
+        <module>spring-examples-jms</module>
     </modules>
     <packaging>pom</packaging>
 
