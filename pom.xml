@@ -14,6 +14,7 @@
         <module>spring-examples-jpa</module>
         <module>spring-examples-retry</module>
         <module>spring-examples-jms</module>
+        <module>spring-examples-ehcache</module>
     </modules>
     <packaging>pom</packaging>
 
