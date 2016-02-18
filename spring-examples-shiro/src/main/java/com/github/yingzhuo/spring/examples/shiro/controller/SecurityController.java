@@ -3,6 +3,7 @@ package com.github.yingzhuo.spring.examples.shiro.controller;
 import com.github.yingzhuo.spring.examples.shiro.domain.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.subject.Subject;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,10 +31,12 @@ public class SecurityController {
         return "OK";
     }
 
+    @RequiresAuthentication
     @RequestMapping(value = "who", method = RequestMethod.GET)
     public String who() {
         Subject subject = SecurityUtils.getSubject();
         User user = (User) subject.getPrincipal();
         return user.getUsername();
     }
+
 }
