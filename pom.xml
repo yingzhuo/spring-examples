@@ -10,6 +10,7 @@
     <modules>
         <module>spring-examples-ehcache</module>
         <module>spring-examples-email</module>
+        <module>spring-examples-event</module>
         <module>spring-examples-hsqldb</module>
         <module>spring-examples-jetbricktemplate</module>
         <module>spring-examples-mybatis</module>
