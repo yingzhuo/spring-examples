@@ -15,6 +15,7 @@
         <module>spring-examples-jetbricktemplate</module>
         <module>spring-examples-mybatis</module>
         <module>spring-examples-jpa</module>
+        <module>spring-examples-ldap</module>
         <module>spring-examples-retry</module>
         <module>spring-examples-jms</module>
         <module>spring-examples-shiro</module>
