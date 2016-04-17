@@ -10,6 +10,7 @@ import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.Executor;
+import java.util.concurrent.Future;
 
 @Configuration
 public class ApplicationConfigAsync implements AsyncConfigurer {
@@ -17,6 +18,7 @@ public class ApplicationConfigAsync implements AsyncConfigurer {
     @Override
     public Executor getAsyncExecutor() {
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
+        taskExecutor.setCorePoolSize(5);
         taskExecutor.setMaxPoolSize(10);
         taskExecutor.setThreadNamePrefix("LULExecutor-");
         taskExecutor.initialize();
@@ -31,15 +33,16 @@ public class ApplicationConfigAsync implements AsyncConfigurer {
     @Bean
     public CommandLineRunner commandLineRunner(AsyncTask task) {
         return (String... args) -> {
+            System.out.println("start");
+            Future<Integer> future = task.doTask();
+            System.out.println("end");
 
-            System.out.println("start ...");
-            System.out.println("1");
-            try {
-                task.doExecute();
-            } catch (Throwable throwable) {
-                // nop
+            while (true) {
+                if (future.isDone()) {
+                    System.out.println("result: " + future.get());
+                    break;
+                }
             }
-            System.out.println("2");
         };
     }
 }

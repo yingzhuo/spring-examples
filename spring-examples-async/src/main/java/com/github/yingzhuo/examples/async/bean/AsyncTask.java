@@ -1,15 +1,13 @@
 package com.github.yingzhuo.examples.async.bean;
 
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Component;
 
-@Component
-public class AsyncTask {
+import java.util.concurrent.Future;
+
+@FunctionalInterface
+public interface AsyncTask {
 
     @Async
-    public void doExecute() throws Throwable {
-        Thread.sleep(3000);
-        System.out.println("do some async task");
-    }
+    public Future<Integer> doTask();
 
 }
