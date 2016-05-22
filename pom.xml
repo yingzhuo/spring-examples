@@ -9,6 +9,7 @@
     <version>1.0.0</version>
     <modules>
         <module>spring-examples-async</module>
+        <module>spring-examples-docker</module>
         <module>spring-examples-ehcache</module>
         <module>spring-examples-email</module>
         <module>spring-examples-event</module>

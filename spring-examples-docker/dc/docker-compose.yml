@@ -1,0 +1,11 @@
+version: '2'
+services:
+  <appname>:
+    image: yingzhuo/<appname>:<tag>
+    ports:
+      - "8080:8080"
+    volumes:
+      - /tmp:/tmp
+      - /tmp:/var/log/<appname>
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
