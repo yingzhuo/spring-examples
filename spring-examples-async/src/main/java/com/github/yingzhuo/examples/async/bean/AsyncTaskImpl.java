@@ -10,7 +10,7 @@ public class AsyncTaskImpl implements AsyncTask {
 
     @Override
     public Future<Integer> doTask() {
-        try { Thread.sleep(3000); } catch (InterruptedException ignored) {}
+        try { Thread.sleep(5000); } catch (InterruptedException ignored) {}
         return new AsyncResult<>(Integer.MAX_VALUE);
     }
 
