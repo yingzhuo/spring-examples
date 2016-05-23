@@ -17,13 +17,14 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.lang.reflect.Method;
+import java.util.concurrent.TimeUnit;
 
 @Configuration
 @EnableCaching
 public class ApplicationConfigRedis {
 
-    @Bean
-    public KeyGenerator wiselyKeyGenerator() {
+    @Bean(name = {"keyGenerator", "keyGen", "kg"})
+    public KeyGenerator keyGenerator() {
         return new KeyGenerator() {
             @Override
             public Object generate(Object target, Method method, Object... params) {
@@ -31,7 +32,7 @@ public class ApplicationConfigRedis {
                 sb.append(target.getClass().getName());
                 sb.append(method.getName());
                 for (Object obj : params) {
-                    sb.append(obj.toString());
+                    sb.append(obj.toString() != null ? obj.toString() : "null");
                 }
                 return sb.toString();
             }
@@ -39,9 +40,10 @@ public class ApplicationConfigRedis {
     }
 
     @Bean
-    public CacheManager cacheManager(
-            @SuppressWarnings("rawtypes") RedisTemplate redisTemplate) {
-        return new RedisCacheManager(redisTemplate);
+    public CacheManager cacheManager(StringRedisTemplate stringRedisTemplate) {
+        RedisCacheManager manager = new RedisCacheManager(stringRedisTemplate);
+        manager.setDefaultExpiration(TimeUnit.HOURS.toSeconds(2));
+        return manager;
     }
 
     @Bean
