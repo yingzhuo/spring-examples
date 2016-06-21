@@ -20,4 +20,5 @@ public class ApplicationConfigDataSource {
                 .addScript("classpath:/hsql/data.sql")
                 .build();
     }
+
 }
