@@ -1,6 +1,6 @@
 package com.github.yingzhuo.spring.examples.mybatis;
 
-import com.github.yingzhuo.spring.examples.mybatis.domain.User;
+import com.github.yingzhuo.spring.examples.mybatis.dao.UserDao;
 import com.github.yingzhuo.spring.examples.mybatis.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -14,16 +14,17 @@ public class ApplicationBoot implements ApplicationRunner {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private UserDao userDao;
+
     public static void main(String[] args) {
         SpringApplication.run(ApplicationBoot.class, args).close();
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        if (userMapper != null) {
-            User user = userMapper.findById("1");
-            System.out.println(user);
-        }
+        System.out.println(userMapper.findById("1"));
+        System.out.println(userDao.findAllUsers());
     }
 
 }
