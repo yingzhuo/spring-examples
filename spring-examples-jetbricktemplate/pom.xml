@@ -22,6 +22,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- jetbrick-template -->
         <dependency>
             <groupId>com.github.subchen</groupId>
             <artifactId>jetbrick-template</artifactId>
@@ -38,6 +39,7 @@
             <version>2.1.2</version>
         </dependency>
 
+        <!-- webjars -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
@@ -49,6 +51,7 @@
             <version>3.3.6</version>
         </dependency>
 
+        <!-- common utils -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>

@@ -1,14 +1,13 @@
 package com.github.yingzhuo.spring.examples.hsqldb;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 public class ApplicationConfigDataSource {
 
     @Bean
@@ -16,8 +15,9 @@ public class ApplicationConfigDataSource {
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.HSQL)
-                .addScript("classpath:/hsql/schema.sql")
-                .addScript("classpath:/hsql/data.sql")
+                .addScript("classpath:/hsqldb/schema.sql")
+                .addScript("classpath:/hsqldb/data.sql")
                 .build();
     }
+
 }
