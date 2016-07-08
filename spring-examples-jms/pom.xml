@@ -29,7 +29,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jms</artifactId>
-            <version>4.2.6.RELEASE</version>
         </dependency>
 
         <dependency>
