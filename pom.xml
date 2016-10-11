@@ -31,8 +31,8 @@
 
     <properties>
         <encoding>UTF-8</encoding>
-        <spring.boot.version>1.4.0.RELEASE</spring.boot.version>
-        <spring.version>4.3.2.RELEASE</spring.version>
+        <spring.boot.version>1.4.1.RELEASE</spring.boot.version>
+        <spring.version>4.3.3.RELEASE</spring.version>
         <slf4j.version>1.7.21</slf4j.version>
     </properties>
 
