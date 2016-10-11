@@ -25,6 +25,7 @@
         <module>spring-examples-jms</module>
         <module>spring-examples-scheduler</module>
         <module>spring-examples-shiro</module>
+        <module>spring-examples-unittesting</module>
         <module>spring-examples-upload</module>
     </modules>
     <packaging>pom</packaging>
