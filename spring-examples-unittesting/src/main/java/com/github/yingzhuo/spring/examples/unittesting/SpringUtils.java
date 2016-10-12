@@ -25,4 +25,5 @@ public final class SpringUtils implements EnvironmentAware {
     public static Set<String> getProfilesAsSet() {
         return PROFILES_SET;
     }
+
 }

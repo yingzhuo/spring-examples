@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ApplicationBoot.class)
-@ActiveProfiles({"ut"})
+@ActiveProfiles({"ut", "xxx", "yyy"})
 @Sql("classpath:/hsql/schema.sql")
 @Sql("classpath:/hsql/data.sql")
 public class UserDaoTestCase {
