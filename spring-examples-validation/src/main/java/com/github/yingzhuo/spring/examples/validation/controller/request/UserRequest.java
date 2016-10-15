@@ -1,5 +1,6 @@
 package com.github.yingzhuo.spring.examples.validation.controller.request;
 
+import com.github.yingzhuo.spring.examples.validation.jsr310.Password;
 import com.github.yingzhuo.spring.examples.validation.jsr310.ValidationGroup;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
@@ -22,6 +23,7 @@ public class UserRequest implements Serializable {
     private String phone;
 
     @NotNull(message = "密码为必填", groups = ValidationGroup.Create.class)
+    @Password(groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})
     private String password;
 
     public String getName() {
