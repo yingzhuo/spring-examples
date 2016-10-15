@@ -27,6 +27,7 @@
         <module>spring-examples-shiro</module>
         <module>spring-examples-unittesting</module>
         <module>spring-examples-upload</module>
+        <module>spring-examples-validation</module>
     </modules>
     <packaging>pom</packaging>
 
