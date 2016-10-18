@@ -24,6 +24,7 @@
         <module>spring-examples-retry</module>
         <module>spring-examples-jms</module>
         <module>spring-examples-scheduler</module>
+        <module>spring-examples-swagger</module>
         <module>spring-examples-shiro</module>
         <module>spring-examples-unittesting</module>
         <module>spring-examples-upload</module>
