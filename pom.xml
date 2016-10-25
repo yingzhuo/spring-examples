@@ -29,6 +29,7 @@
         <module>spring-examples-unittesting</module>
         <module>spring-examples-upload</module>
         <module>spring-examples-validation</module>
+        <module>spring-examples-https</module>
     </modules>
     <packaging>pom</packaging>
 
