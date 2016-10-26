@@ -17,7 +17,7 @@ public class ApplicationBoot {
         SpringApplication.run(ApplicationBoot.class, args);
     }
 
-    @RequestMapping(value = "/ssl", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/test", method = {RequestMethod.GET, RequestMethod.POST})
     public Map<String, Object> ssl(HttpServletRequest request) {
         final Map<String, Object> map = new HashMap<>();
 
