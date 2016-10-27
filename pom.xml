@@ -12,6 +12,7 @@
         <module>spring-examples-docker</module>
         <module>spring-examples-ehcache</module>
         <module>spring-examples-email</module>
+        <module>spring-examples-errorpage</module>
         <module>spring-examples-event</module>
         <module>spring-examples-hsqldb</module>
         <module>spring-examples-jetbricktemplate</module>
@@ -79,6 +80,11 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-freemarker</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
@@ -202,6 +208,13 @@
                 <groupId>org.hsqldb</groupId>
                 <artifactId>hsqldb</artifactId>
                 <version>${hsqldb.version}</version>
+            </dependency>
+
+            <!-- freemarker -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>2.3.23</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
