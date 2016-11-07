@@ -16,7 +16,6 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
 @Configuration
@@ -25,17 +24,14 @@ public class ApplicationConfigRedis {
 
     @Bean(name = {"keyGenerator", "keyGen", "kg"})
     public KeyGenerator keyGenerator() {
-        return new KeyGenerator() {
-            @Override
-            public Object generate(Object target, Method method, Object... params) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(target.getClass().getName());
-                sb.append(method.getName());
-                for (Object obj : params) {
-                    sb.append(obj.toString() != null ? obj.toString() : "null");
-                }
-                return sb.toString();
+        return (target, method, params) -> {
+            StringBuilder sb = new StringBuilder();
+            sb.append(target.getClass().getName());
+            sb.append(method.getName());
+            for (Object obj : params) {
+                sb.append(obj.toString() != null ? obj.toString() : "null");
             }
+            return sb.toString();
         };
     }
 
@@ -74,5 +70,6 @@ public class ApplicationConfigRedis {
     }
 
     @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY, property = "@class")
-    public static abstract class MixIn {}
+    public static abstract class MixIn {
+    }
 }
