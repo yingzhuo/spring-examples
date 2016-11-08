@@ -11,6 +11,7 @@
         <module>spring-examples-async</module>
         <module>spring-examples-docker</module>
         <module>spring-examples-ehcache</module>
+        <module>spring-examples-elasticsearch</module>
         <module>spring-examples-email</module>
         <module>spring-examples-errorpage</module>
         <module>spring-examples-event</module>
@@ -40,6 +41,7 @@
         <spring.version>4.3.3.RELEASE</spring.version>
         <slf4j.version>1.7.21</slf4j.version>
         <hsqldb.version>2.3.4</hsqldb.version>
+        <jackson.version>2.8.4</jackson.version>
     </properties>
 
     <dependencyManagement>
@@ -201,6 +203,38 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>log4j-over-slf4j</artifactId>
                 <version>${slf4j.version}</version>
+            </dependency>
+
+            <!-- jackson -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-cbor</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-smile</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-yaml</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
 
             <!-- hsqldb -->
