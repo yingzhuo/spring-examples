@@ -37,8 +37,8 @@
 
     <properties>
         <encoding>UTF-8</encoding>
-        <spring.boot.version>1.4.1.RELEASE</spring.boot.version>
-        <spring.version>4.3.3.RELEASE</spring.version>
+        <spring.boot.version>1.4.2.RELEASE</spring.boot.version>
+        <spring.version>4.3.4.RELEASE</spring.version>
         <slf4j.version>1.7.21</slf4j.version>
         <hsqldb.version>2.3.4</hsqldb.version>
         <jackson.version>2.8.4</jackson.version>
@@ -249,6 +249,20 @@
                 <groupId>org.freemarker</groupId>
                 <artifactId>freemarker</artifactId>
                 <version>2.3.23</version>
+            </dependency>
+
+            <!-- classmate -->
+            <dependency>
+                <groupId>com.fasterxml</groupId>
+                <artifactId>classmate</artifactId>
+                <version>1.3.3</version>
+            </dependency>
+
+            <!-- commons -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>20.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
