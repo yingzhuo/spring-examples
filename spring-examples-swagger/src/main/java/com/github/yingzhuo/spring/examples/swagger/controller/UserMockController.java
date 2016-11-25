@@ -18,7 +18,7 @@ public class UserMockController {
 
     static {
         USERS.add(new User("1", "应卓", "1234"));
-        USERS.add(new User("2", "尹英椿", "1234"));
+        USERS.add(new User("2", null, "1234"));
     }
 
     @ApiOperation(value = "获取用户列表", notes = "获取铃铛所有用户的(分页)")
@@ -56,7 +56,6 @@ public class UserMockController {
     })
     @PostMapping(value = "/")
     public Json regiesterUser(@RequestBody User user) {
-
         return Json.newInstace()
                 .code(201);
     }
