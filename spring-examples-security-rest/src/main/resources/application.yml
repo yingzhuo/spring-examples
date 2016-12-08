@@ -1,0 +1,23 @@
+spring:
+  main:
+    banner-mode: log
+
+security:
+  user:
+    name: admin
+    password: admin
+    role: USER,ADMIN
+
+endpoints:
+  info:
+    enabled: true
+    sensitive: true
+
+management:
+  security:
+    enabled: true
+
+info:
+  application:
+    name: security-rest
+    version: 1.0.0
