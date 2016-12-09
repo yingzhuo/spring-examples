@@ -2,6 +2,7 @@ package com.github.yingzhuo.spring.examples.security.rest;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -24,7 +25,6 @@ public abstract class ApplicationConfigSecurity {
         @Bean
         public UserDetailsService userDetailsService() {
             return username -> {
-                System.out.println("hahaha");
                 return new User(username, "123456", true, true, true, true,
                         AuthorityUtils.commaSeparatedStringToAuthorityList("USER,ADMIN"));
             };
@@ -50,10 +50,10 @@ public abstract class ApplicationConfigSecurity {
             // @formatter:on
         }
 
-//        @Override
-//        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//            auth.userDetailsService(this.userDetailsService()).passwordEncoder(null);
-//        }
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+            auth.userDetailsService(this.userDetailsService()).passwordEncoder(new Md5PasswordEncoder());
+        }
     }
 
 }
