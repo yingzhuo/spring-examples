@@ -3,6 +3,7 @@ package com.github.yingzhuo.spring.examples.es.apprunner;
 import com.github.yingzhuo.spring.examples.es.domain.Gender;
 import com.github.yingzhuo.spring.examples.es.domain.User;
 import com.github.yingzhuo.spring.examples.es.repo.UserRepo;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -11,8 +12,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class TestingApplicationRunner implements ApplicationRunner {
 
+    private final UserRepo userRepo;
+
     @Autowired
-    private UserRepo userRepo;
+    public TestingApplicationRunner(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -25,10 +30,13 @@ public class TestingApplicationRunner implements ApplicationRunner {
 
         userRepo.save(user1);
 
-        User user2 = userRepo.findByName("应卓");
-        System.out.println(user2.getId());
-        System.out.println(user2.getName());
-        System.out.println(user2.getGender());
+        Iterable<User> users = userRepo.search(QueryBuilders.queryStringQuery("应"));
+
+        users.forEach(it -> {
+            System.out.println(it.getId());
+            System.out.println(it.getName());
+            System.out.println(it.getGender());
+        });
     }
 
 }

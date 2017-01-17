@@ -9,6 +9,8 @@ import java.util.UUID;
 @Document(indexName = "example", type = "user")
 public class User implements Serializable {
 
+    private static final long serialVersionUID = 7021813890579252687L;
+
     @Id
     private String id = UUID.randomUUID().toString();
     private String name;
@@ -37,4 +39,5 @@ public class User implements Serializable {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
+
 }
