@@ -19,15 +19,14 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-redis</artifactId>
-            <version>${spring.boot.version}</version>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
         <!-- spring-session -->
         <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session</artifactId>
-            <version>1.2.1.RELEASE</version>
+            <version>1.2.2.RELEASE</version>
         </dependency>
     </dependencies>
 </project>
