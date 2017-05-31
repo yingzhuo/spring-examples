@@ -5,15 +5,15 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.subject.Subject;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("security")
 public class SecurityController {
 
-    @RequestMapping(value = "login", method = RequestMethod.GET)
+    @GetMapping(value = "login")
     public String login() {
         UsernamePasswordToken token = new UsernamePasswordToken();
         token.setUsername("yingzhuo");
@@ -25,14 +25,14 @@ public class SecurityController {
         return "OK";
     }
 
-    @RequestMapping(value = "logout", method = RequestMethod.GET)
+    @GetMapping(value = "logout")
     public String logout() {
         SecurityUtils.getSubject().logout();
         return "OK";
     }
 
     @RequiresAuthentication
-    @RequestMapping(value = "who", method = RequestMethod.GET)
+    @GetMapping(value = "who")
     public String who() {
         Subject subject = SecurityUtils.getSubject();
         User user = (User) subject.getPrincipal();
