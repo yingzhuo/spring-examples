@@ -16,15 +16,16 @@
         <module>spring-examples-errorpage</module>
         <module>spring-examples-event</module>
         <module>spring-examples-hsqldb</module>
+        <module>spring-examples-https</module>
         <module>spring-examples-jetbricktemplate</module>
+        <module>spring-examples-jms</module>
+        <module>spring-examples-jpa</module>
+        <module>spring-examples-ldap</module>
         <module>spring-examples-mybatis</module>
         <module>spring-examples-rabbitmq</module>
         <module>spring-examples-redis</module>
         <module>spring-examples-redis-session</module>
-        <module>spring-examples-jpa</module>
-        <module>spring-examples-ldap</module>
         <module>spring-examples-retry</module>
-        <module>spring-examples-jms</module>
         <module>spring-examples-scala</module>
         <module>spring-examples-scheduler</module>
         <module>spring-examples-security-rest</module>
@@ -33,17 +34,16 @@
         <module>spring-examples-unittesting</module>
         <module>spring-examples-upload</module>
         <module>spring-examples-validation</module>
-        <module>spring-examples-https</module>
     </modules>
     <packaging>pom</packaging>
 
     <properties>
         <encoding>UTF-8</encoding>
-        <scala.version>2.12.1</scala.version>
+        <scala.version>2.12.2</scala.version>
         <spring.boot.version>1.5.3.RELEASE</spring.boot.version>
         <spring.version>4.3.8.RELEASE</spring.version>
         <slf4j.version>1.7.25</slf4j.version>
-        <hsqldb.version>2.3.4</hsqldb.version>
+        <hsqldb.version>2.3.5</hsqldb.version>
         <jackson.version>2.8.8</jackson.version>
     </properties>
 
@@ -311,7 +311,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>21.0</version>
+                <version>22.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
