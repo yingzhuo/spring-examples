@@ -33,4 +33,3 @@ limitations under the License.
 ![QQ](http://img.shields.io/badge/QQ-23007067-blue.svg)
 ![WeChat](http://img.shields.io/badge/WeChat-yingzhor-blue.svg)
 ![Email](http://img.shields.io/badge/Email-yingzhor@gmail.com-blue.svg)
-![Phone](http://img.shields.io/badge/Phone-+86_189_1694_4373-blue.svg)
