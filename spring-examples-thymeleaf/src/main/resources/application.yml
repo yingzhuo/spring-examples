@@ -1,0 +1,11 @@
+spring:
+  thymeleaf:
+    enabled: true
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+    check-template-location: false
+  messages:
+    encoding: UTF-8
+    basename: i18n/messages

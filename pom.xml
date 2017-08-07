@@ -29,8 +29,9 @@
         <module>spring-examples-scala</module>
         <module>spring-examples-scheduler</module>
         <module>spring-examples-security-rest</module>
-        <module>spring-examples-swagger</module>
         <module>spring-examples-shiro</module>
+        <module>spring-examples-swagger</module>
+        <module>spring-examples-thymeleaf</module>
         <module>spring-examples-unittesting</module>
         <module>spring-examples-upload</module>
         <module>spring-examples-validation</module>
@@ -127,6 +128,11 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-amqp</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-thymeleaf</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
 

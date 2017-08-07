@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}">
+<head>
+    <base th:href="${basePath}"/>
+    <title th:text="${title}">title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" href="../css/index.css" />
+</head>
+<body>
+
+<h3>例: URL</h3>
+<a th:href="@{/index}">this</a>
+
+<h3>例: i18n</h3>
+<span th:text="${#locale.language}">ES</span>
+<p th:text="#{index.author.name}">text</p>
+
+<h3>例: *语法</h3>
+<div th:object="${prod}">
+    <span th:text="*{id}">产品ID</span>
+    <span th:text="*{name}">产品名称</span>
+    <span th:text="*{price}">产品价格</span>
+    <a th:href="@{/product(id=*{id},page='1')}">购买链接</a>
+</div>
+
+<h3>例: 字面变量</h3>
+<div>
+    <span th:if="true" th:text="显示">show</span>
+    <span th:unless="!false" th:text="不显示">show</span>
+    <span th:if="${nothing} == null" th:text="显示">show</span>
+</div>
+
+<h3>例: 表达式</h3>
+<div th:with="isShow=false">
+    <span th:text="${isShow}?'hello':'world'">...</span>
+    <span th:text="${nothing}?:'没有值'">...</span>
+    <span th:text="${nothing}?:_">...</span>
+</div>
+
+<h3>例: ${{}}表达式</h3>
+<div th:text="${{prod}}">
+    ...
+</div>
+
+</body>
+</html>

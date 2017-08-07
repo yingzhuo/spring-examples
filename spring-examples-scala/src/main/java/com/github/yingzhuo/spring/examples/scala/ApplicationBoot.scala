@@ -7,7 +7,7 @@
  **
  **        https://github.com/yingzhuo/spring-examples
  */
-package com.github.yingzhuo.examples.scala
+package com.github.yingzhuo.spring.examples.scala
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication

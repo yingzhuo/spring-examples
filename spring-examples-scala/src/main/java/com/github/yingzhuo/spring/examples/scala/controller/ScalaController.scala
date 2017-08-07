@@ -7,7 +7,7 @@
  **
  **        https://github.com/yingzhuo/spring-examples
  */
-package com.github.yingzhuo.examples.scala.controller
+package com.github.yingzhuo.spring.examples.scala.controller
 
 import org.springframework.web.bind.annotation.{GetMapping, RequestMapping, RestController}
 

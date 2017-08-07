@@ -7,7 +7,7 @@
  **
  **        https://github.com/yingzhuo/spring-examples
  */
-package com.github.yingzhuo.examples.scala
+package com.github.yingzhuo.spring.examples.scala
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.scala.DefaultScalaModule
