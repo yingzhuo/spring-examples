@@ -11,11 +11,13 @@ public class ApplicationConfigThymeLeaf extends WebMvcConfigurerAdapter {
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(new Converter<Product, String>() {
-            @Override
-            public String convert(Product source) {
-                return source.getName();
-            }
-        });
+        registry.addConverter(new ProductToStringConverter());
+    }
+
+    public static class ProductToStringConverter implements Converter<Product, String> {
+        @Override
+        public String convert(Product source) {
+            return source == null ? "null" : source.getName();
+        }
     }
 }
