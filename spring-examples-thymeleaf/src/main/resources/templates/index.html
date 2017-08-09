@@ -3,7 +3,7 @@
 <head>
     <base th:href="${basePath}"/>
     <title th:text="${title}">title</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" href="../static/css/index.css" />
 </head>
 <body>
 
@@ -37,9 +37,26 @@
 </div>
 
 <h3>例: ${{}}表达式</h3>
-<div th:text="${{prod}}">
-    ...
+<div>
+    <span th:text="${{prod}}">...</span>
+    <span th:text="${{now}}">...</span>
 </div>
 
+<h3>例: remove</h3>
+<div>
+    <div th:remove="all">...</div>
+    <div th:remove="tag"><p>...</p></div>
+</div>
+
+<div th:insert="~{footer :: copy}">...</div>
+
+<h3>例: inline exp</h3>
+<p th:inline="text">
+    [[${authorName}]]
+</p>
+
+<script th:inline="javascript" type="text/javascript">
+    alert([[${authorName}]])
+</script>
 </body>
 </html>

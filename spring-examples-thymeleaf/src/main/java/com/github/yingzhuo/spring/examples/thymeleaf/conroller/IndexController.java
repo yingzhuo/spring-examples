@@ -14,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Date;
+
 @Controller
 public class IndexController {
 
@@ -25,6 +27,8 @@ public class IndexController {
     @RequestMapping("/index")
     public String index(ModelMap modelMap) {
         modelMap.put("prod", new Product("1", "Rogue Vape Mod", 3900D, true));
+        modelMap.put("now", new Date());
+        modelMap.put("authorName", "应卓");
         return "index";
     }
 
