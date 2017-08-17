@@ -7,7 +7,7 @@
  **
  **        https://github.com/yingzhuo/spring-examples
  */
-package com.github.yingzhuo.spring.examples.validation;
+package com.github.yingzhuo.spring.examples.aop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -35,6 +35,7 @@
         <module>spring-examples-unittesting</module>
         <module>spring-examples-upload</module>
         <module>spring-examples-validation</module>
+        <module>spring-examples-aop</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -72,6 +73,11 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
