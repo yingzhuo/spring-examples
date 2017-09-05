@@ -12,6 +12,8 @@ package com.github.yingzhuo.spring.examples.jpa;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.AuditorAware;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -21,6 +23,7 @@ import javax.persistence.EntityManagerFactory;
 
 @Configuration
 @EntityScan(basePackages = "com.github.yingzhuo.spring.examples.jpa.domain")
+@EnableJpaAuditing
 @EnableJpaRepositories(basePackages = "com.github.yingzhuo.spring.examples.jpa.dao")
 @EnableTransactionManagement
 public class ApplicationConfigJpa {
@@ -30,6 +33,11 @@ public class ApplicationConfigJpa {
         JpaTransactionManager txManager = new JpaTransactionManager();
         txManager.setEntityManagerFactory(entityManagerFactory);
         return txManager;
+    }
+
+    @Bean
+    public AuditorAware<String> auditorAware() {
+        return () -> "hello";
     }
 
 }

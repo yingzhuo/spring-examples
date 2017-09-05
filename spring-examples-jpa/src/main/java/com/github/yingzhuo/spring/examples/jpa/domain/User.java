@@ -9,33 +9,25 @@
  */
 package com.github.yingzhuo.spring.examples.jpa.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "T_USER")
+@EntityListeners(AuditingEntityListener.class)
 public class User implements Serializable {
 
-    private String id;
-    private String name;
-
-    public User() {
-        super();
-    }
-
-    @Override
-    public String toString() {
-        return "User {" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
+    private static final long serialVersionUID = -3565588482964320937L;
 
     @Id
     @Column(name = "ID")
+    private String id;
+
+    @Column(name = "NAME")
+    private String name;
+
     public String getId() {
         return id;
     }
@@ -44,7 +36,6 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "NAME")
     public String getName() {
         return name;
     }
