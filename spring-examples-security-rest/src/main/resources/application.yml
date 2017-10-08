@@ -1,21 +1,17 @@
-spring:
-  main:
-    banner-mode: log
+management:
+  security:
+    enabled: true
 
 security:
   user:
     name: admin
     password: admin
     role: USER,ADMIN
+  basic:
+    enabled: false
 
 endpoints:
-  info:
-    enabled: true
-    sensitive: true
-
-management:
-  security:
-    enabled: true
+  sensitive: true
 
 info:
   application:

@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>spring-examples</artifactId>
     <version>1.0.0</version>
@@ -44,6 +44,7 @@
         <scala.version>2.12.3</scala.version>
         <spring.boot.version>1.5.7.RELEASE</spring.boot.version>
         <spring.version>4.3.11.RELEASE</spring.version>
+        <spring.security.version>4.2.3.RELEASE</spring.security.version>
         <slf4j.version>1.7.25</slf4j.version>
         <logback.version>1.2.3</logback.version>
         <hsqldb.version>2.4.0</hsqldb.version>
@@ -221,11 +222,28 @@
                 <version>${spring.version}</version>
             </dependency>
 
+            <!-- spring-security -->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-core</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+
             <!-- spring-retry -->
             <dependency>
                 <groupId>org.springframework.retry</groupId>
                 <artifactId>spring-retry</artifactId>
-                <version>1.2.0.RELEASE</version>
+                <version>1.2.1.RELEASE</version>
             </dependency>
 
             <!-- mybatis -->

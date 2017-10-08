@@ -9,58 +9,79 @@
  */
 package com.github.yingzhuo.spring.examples.security.rest;
 
-import org.springframework.context.annotation.Bean;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.AuthenticationEntryPoint;
 
-public abstract class ApplicationConfigSecurity {
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-    @Configuration
-    public static class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdapter {
+@Configuration
+@EnableWebSecurity
+public class ApplicationConfigSecurity extends WebSecurityConfigurerAdapter {
 
-        @Override
-        public void init(AuthenticationManagerBuilder auth) throws Exception {
-            auth.userDetailsService(userDetailsService());
-        }
+    private final ObjectMapper om;
 
-        @Bean
-        public UserDetailsService userDetailsService() {
-            return username ->
-                new User(username, "123456", true, true, true, true,
-                        AuthorityUtils.commaSeparatedStringToAuthorityList("USER,ADMIN"));
-        }
+    @Autowired
+    public ApplicationConfigSecurity(ObjectMapper om) {
+        this.om = om;
     }
 
-    @Configuration
-    @EnableWebSecurity
-    public static class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
 
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            // @formatter:off
-            http.authorizeRequests()
-                    .anyRequest().fullyAuthenticated()
-                        .and()
-                    .httpBasic()
-                        .and().
-                    csrf()
-                        .disable()
-                    .formLogin()
-                        .disable();
-            // @formatter:on
+        http.csrf()
+                .disable();
+
+        http.formLogin()
+                .disable();
+
+        http.logout()
+                .disable();
+
+        http.sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.authorizeRequests()
+                .antMatchers("/api/**").authenticated();
+
+        http.httpBasic()
+                .authenticationEntryPoint(new RestAuthenticationEntryPoint(om));
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+        manager.createUser(User.withUsername("yingzhuo").password("202cb962ac59075b964b07152d234b70").roles("ADMIN", "USER").build()); // password = 123
+        auth.userDetailsService(manager).passwordEncoder(new Md5PasswordEncoder());
+    }
+
+    private static class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
+
+        private final ObjectMapper om;
+
+        public RestAuthenticationEntryPoint(ObjectMapper om) {
+            this.om = om;
         }
 
         @Override
-        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-            auth.userDetailsService(this.userDetailsService()).passwordEncoder(new Md5PasswordEncoder());
+        public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+            response.setContentType("application/json; charset=UTF-8");
+            response.setCharacterEncoding("UTF-8");
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            response.getWriter().write("错误信息");
         }
     }
 
