@@ -8,6 +8,7 @@
     <artifactId>spring-examples</artifactId>
     <version>1.0.0</version>
     <modules>
+        <module>spring-examples-aop</module>
         <module>spring-examples-async</module>
         <module>spring-examples-docker</module>
         <module>spring-examples-ehcache</module>
@@ -35,7 +36,6 @@
         <module>spring-examples-unittesting</module>
         <module>spring-examples-upload</module>
         <module>spring-examples-validation</module>
-        <module>spring-examples-aop</module>
     </modules>
     <packaging>pom</packaging>
 
