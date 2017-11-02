@@ -19,8 +19,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
+import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class ApiValidationExceptionHandler extends ResponseEntityExceptionHandler {
@@ -43,7 +42,7 @@ public class ApiValidationExceptionHandler extends ResponseEntityExceptionHandle
                         fieldError.getCode(),
                         fieldError.getRejectedValue())
                 )
-                .collect(toList());
+                .collect(Collectors.toList());
 
         List<ApiGlobalError> apiGlobalErrors = bindingResult
                 .getGlobalErrors()
@@ -51,7 +50,7 @@ public class ApiValidationExceptionHandler extends ResponseEntityExceptionHandle
                 .map(globalError -> new ApiGlobalError(
                         globalError.getCode())
                 )
-                .collect(toList());
+                .collect(Collectors.toList());
 
         ApiErrorsView apiErrorsView = new ApiErrorsView(apiFieldErrors, apiGlobalErrors);
 
