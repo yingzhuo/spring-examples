@@ -16,6 +16,7 @@
         <module>spring-examples-email</module>
         <module>spring-examples-errorpage</module>
         <module>spring-examples-event</module>
+        <module>spring-examples-groovy</module>
         <module>spring-examples-hsqldb</module>
         <module>spring-examples-https</module>
         <module>spring-examples-jetbricktemplate</module>
@@ -44,6 +45,7 @@
         <encoding>UTF-8</encoding>
         <scala.version>2.12.4</scala.version>
         <spring.boot.version>1.5.10.RELEASE</spring.boot.version>
+        <groovy.version>2.4.14</groovy.version>
         <spring.version>4.3.14.RELEASE</spring.version>
         <spring.security.version>4.2.4.RELEASE</spring.security.version>
         <slf4j.version>1.7.25</slf4j.version>
@@ -64,6 +66,13 @@
                 <groupId>org.scala-lang</groupId>
                 <artifactId>scala-reflect</artifactId>
                 <version>${scala.version}</version>
+            </dependency>
+
+            <!-- groovy -->
+            <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>${groovy.version}</version>
             </dependency>
 
             <!-- spring-boot -->
