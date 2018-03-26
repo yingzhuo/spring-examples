@@ -7,7 +7,26 @@
 
     <lang:defaults refresh-check-delay="100000"/>
 
-    <lang:groovy id="greetingService"
-                 script-source="classpath:/GreetingServiceImpl.groovy"/>
+    <!--
+    <lang:groovy id="greetingService" script-source="classpath:/GreetingServiceImpl.groovy"/>
+    -->
+
+    <lang:groovy id="greetingService">
+        <lang:inline-script>
+            import com.github.yingzhuo.spring.examples.groovy.iface.GreetingService
+
+            class GreetingServiceImpl implements GreetingService {
+
+                @Override
+                void greet(String name) {
+                    if (name != null)
+                        println "Hi " + name + "!"
+                    else
+                        println "Hi."
+                }
+
+            }
+        </lang:inline-script>
+    </lang:groovy>
 
 </beans>
