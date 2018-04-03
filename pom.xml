@@ -43,7 +43,7 @@
 
     <properties>
         <encoding>UTF-8</encoding>
-        <scala.version>2.12.4</scala.version>
+        <scala.version>2.12.5</scala.version>
         <spring.boot.version>1.5.10.RELEASE</spring.boot.version>
         <groovy.version>2.4.14</groovy.version>
         <spring.version>4.3.14.RELEASE</spring.version>
