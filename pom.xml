@@ -41,7 +41,7 @@
 
     <properties>
         <encoding>UTF-8</encoding>
-        <scala.version>2.12.5</scala.version>
+        <scala.version>2.12.6</scala.version>
         <groovy.version>2.4.14</groovy.version>
         <spring.boot.version>2.0.2.RELEASE</spring.boot.version>
         <spring.version>5.0.6.RELEASE</spring.version>
