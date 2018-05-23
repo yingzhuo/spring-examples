@@ -10,11 +10,8 @@
 package com.github.yingzhuo.spring.examples.shiro.realm;
 
 import com.github.yingzhuo.spring.examples.shiro.domain.User;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authc.pam.UnsupportedTokenException;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -28,6 +25,14 @@ import java.util.HashSet;
 import java.util.UUID;
 
 public class WorkhourseRealm extends AuthorizingRealm {
+
+    public WorkhourseRealm() {
+        HashedCredentialsMatcher credentialsMatcher = new HashedCredentialsMatcher();
+        credentialsMatcher.setHashAlgorithmName("MD5");
+        credentialsMatcher.setStoredCredentialsHexEncoded(true);
+        credentialsMatcher.setHashIterations(1);
+        super.setCredentialsMatcher(credentialsMatcher);
+    }
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {

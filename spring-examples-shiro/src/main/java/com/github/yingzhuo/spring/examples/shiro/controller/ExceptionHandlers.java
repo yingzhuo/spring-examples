@@ -16,14 +16,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@ControllerAdvice(basePackages = {"com.github.yingzhuo.spring.examples.shiro.controller"})
+@RestControllerAdvice(basePackages = {"com.github.yingzhuo.spring.examples.shiro.controller"})
 public class ExceptionHandlers {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionHandlers.class);
@@ -39,7 +38,6 @@ public class ExceptionHandlers {
         JSON_HTTP_HEADERS = HttpHeaders.readOnlyHttpHeaders(json);
     }
 
-    @ResponseBody
     @ExceptionHandler(ShiroException.class)
     public ResponseEntity<Map<String, Object>> handleShiroException(ShiroException exception) {
         Map<String, Object> map = new HashMap<>();

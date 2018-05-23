@@ -20,6 +20,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
+import java.util.Optional;
 
 @Configuration
 @EntityScan(basePackages = "com.github.yingzhuo.spring.examples.jpa.domain")
@@ -37,7 +38,7 @@ public class ApplicationConfigJpa {
 
     @Bean
     public AuditorAware<String> auditorAware() {
-        return () -> "hello";
+        return () -> Optional.of("hello");
     }
 
 }

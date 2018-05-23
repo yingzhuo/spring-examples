@@ -9,11 +9,16 @@
  */
 package com.github.yingzhuo.spring.examples.jpa;
 
+import com.github.yingzhuo.spring.examples.jpa.dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ApplicationBoot {
+
+    @Autowired
+    private UserDao userDao;
 
     public static void main(String[] args) {
         SpringApplication.run(ApplicationBoot.class, args);

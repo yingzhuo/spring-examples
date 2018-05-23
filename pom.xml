@@ -25,7 +25,6 @@
         <module>spring-examples-ldap</module>
         <module>spring-examples-mybatis</module>
         <module>spring-examples-rabbitmq</module>
-        <module>spring-examples-redis</module>
         <module>spring-examples-redis-session</module>
         <module>spring-examples-retry</module>
         <module>spring-examples-scala</module>
@@ -34,7 +33,6 @@
         <module>spring-examples-shiro</module>
         <module>spring-examples-swagger</module>
         <module>spring-examples-thymeleaf</module>
-        <module>spring-examples-unittesting</module>
         <module>spring-examples-upload</module>
         <module>spring-examples-validation</module>
         <module>spring-examples-validation2</module>
@@ -44,14 +42,14 @@
     <properties>
         <encoding>UTF-8</encoding>
         <scala.version>2.12.5</scala.version>
-        <spring.boot.version>1.5.10.RELEASE</spring.boot.version>
         <groovy.version>2.4.14</groovy.version>
-        <spring.version>4.3.14.RELEASE</spring.version>
+        <spring.boot.version>2.0.2.RELEASE</spring.boot.version>
+        <spring.version>5.0.6.RELEASE</spring.version>
         <spring.security.version>4.2.4.RELEASE</spring.security.version>
         <slf4j.version>1.7.25</slf4j.version>
         <logback.version>1.2.3</logback.version>
         <hsqldb.version>2.4.0</hsqldb.version>
-        <jackson.version>2.9.4</jackson.version>
+        <jackson.version>2.9.5</jackson.version>
     </properties>
 
     <dependencyManagement>

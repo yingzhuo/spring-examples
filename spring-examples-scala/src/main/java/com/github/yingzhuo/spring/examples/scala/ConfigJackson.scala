@@ -18,9 +18,6 @@ import org.springframework.context.annotation.Configuration
 class ConfigJackson {
 
     @Autowired(required = false)
-    def configObjectMapper(om: ObjectMapper): Unit = om match {
-        case null =>
-        case x => x.registerModule(DefaultScalaModule)
-    }
+    def configObjectMapper(om: ObjectMapper): Unit = Option(om).foreach(_.registerModules(DefaultScalaModule))
 
 }
