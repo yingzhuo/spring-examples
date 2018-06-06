@@ -16,6 +16,7 @@
         <module>spring-examples-email</module>
         <module>spring-examples-errorpage</module>
         <module>spring-examples-event</module>
+        <module>spring-examples-excel-downloading</module>
         <module>spring-examples-groovy</module>
         <module>spring-examples-hsqldb</module>
         <module>spring-examples-https</module>
